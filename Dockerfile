@@ -3,9 +3,15 @@ FROM php:5.6-apache
 # php5-dev for zip extension
 # libpng12-dev for gd extension
 RUN apt-get update
-RUN apt-get install -y git git-core libmcrypt-dev php5-dev libpng12-dev
+RUN apt-get install -y git git-core \
+                        libmcrypt-dev \
+                        php5-dev \
+                        libpng12-dev \
+                        libfreetype6-dev \
+                        libjpeg62-turbo-dev
 
 # zip for composer install from distr. mcrypt mbstring for laravel
+RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include
 RUN docker-php-ext-install mcrypt mbstring zip gd
 
 # install composer globally and laravel installer
