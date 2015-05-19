@@ -11,6 +11,8 @@ RUN curl -sS https://getcomposer.org/installer | php
 RUN mv composer.phar /usr/local/bin/composer
 RUN composer global require "laravel/installer=~1.1"
 
+RUN a2enmod rewrite
+
 RUN mkdir -p /var/www/laravel-app
 WORKDIR /var/www/laravel-app
 ADD apache_vhost.conf /etc/apache2/sites-enabled/apache_vhost.conf
