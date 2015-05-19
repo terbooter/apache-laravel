@@ -1,10 +1,12 @@
 FROM php:5.6-apache
 # libmcrypt-dev for mcrypt extension
 # php5-dev for zip extension
-RUN apt-get update && apt-get install -y git git-core libmcrypt-dev php5-dev
+# libpng12-dev for gd extension
+RUN apt-get update
+RUN apt-get install -y git git-core libmcrypt-dev php5-dev libpng12-dev
 
 # zip for composer install from distr. mcrypt mbstring for laravel
-RUN docker-php-ext-install mcrypt mbstring zip
+RUN docker-php-ext-install mcrypt mbstring zip gd
 
 # install composer globally and laravel installer
 RUN curl -sS https://getcomposer.org/installer | php
