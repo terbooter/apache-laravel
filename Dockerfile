@@ -20,3 +20,4 @@ RUN mkdir -p /var/www/laravel-app
 WORKDIR /var/www/laravel-app
 ADD apache_vhost.conf /etc/apache2/sites-enabled/apache_vhost.conf
 ADD install-laravel.sh /install-laravel.sh
+RUN chmod a+x /install-laravel.sh
