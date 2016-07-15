@@ -18,6 +18,7 @@ RUN a2enmod rewrite
 
 RUN mkdir -p /var/www/laravel-app
 WORKDIR /var/www/laravel-app
+RUN rm /etc/apache2/sites-enabled/000-default.conf
 ADD apache_vhost.conf /etc/apache2/sites-enabled/apache_vhost.conf
 ADD install-laravel.sh /install-laravel.sh
 RUN chmod a+x /install-laravel.sh

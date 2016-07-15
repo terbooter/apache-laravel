@@ -1,6 +1,6 @@
 php:    
   build: .
   volumes:
-    - laravel-app:/var/www/laravel-app
+    - ./laravel-app:/var/www/laravel-app
   ports:
     - "809:80"
